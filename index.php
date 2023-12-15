@@ -1,11 +1,13 @@
 <?php
 
+
 include("includes/connection.php");
 $connection=new Connection();
+// $hash=password_hash(123,PASSWORD_DEFAULT);
+// mysqli_query($connection->conn,"UPDATE users set password='$hash' where id=1");
 
 $sql="SELECT * from jobs ";
 $result=mysqli_query($connection->conn,$sql);
-
 ?>
 <!DOCTYPE html>
 
@@ -74,15 +76,11 @@ $result=mysqli_query($connection->conn,$sql);
 			</div>
 		</nav>
 	</header>
-
-
-
-
 	<section action="#" method="POST" class="search">
 		<h2>Find Your Dream Job</h2>
-		<form class="form-inline" method="POST" action='search.php'>
+		
 			<div class="form-group mb-2">
-				<input  id="search" type="text" name="keywords" placeholder="Keywords">
+				<input   type="text" id="keywords" placeholder="Keywords">
 
 <!-- 
 			</div>
@@ -92,9 +90,9 @@ $result=mysqli_query($connection->conn,$sql);
 			<div class="form-group mx-sm-3 mb-2">
 				<input type="text" name="company" placeholder="Company">
 			</div> -->
-			<button type="submit" name="search" class="btn btn-primary mb-2">Search</button>
-		</form>
-		<div id="result">mmmhmldshmhd </div>
+			<button type="submit" name="search" onclick="search()" class="btn btn-primary mb-2">Search</button>
+	
+		
 	</section>
 
 	<!--------------------------  card  --------------------->
@@ -102,34 +100,10 @@ $result=mysqli_query($connection->conn,$sql);
 		<h2 class="text-center py-3">Latest Job Listings</h2>
 		<div class="container py-2">
 			
+		<div id="result"> </div>
 
-		<?php
-            while ($row = mysqli_fetch_assoc($result)) {?>
-
-<article class="postcard light yellow">
-				<a class="postcard__img_link" href="#">
-					<img class="postcard__img" src="dashboard/img/imagaz.jpg" alt="Image Title" />
-				</a>
-				<div class="postcard__text t-dark">
-					<h3 class="postcard__title yellow"><a href="#"><?php echo $row['title']?></a></h3>
-					<div class="postcard__subtitle small">
-						<time datetime="2020-05-25 12:00:00">
-							<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2023
-						</time>
-					</div>
-					<div class="postcard__bar"></div>
-					<div class="postcard__preview-txt"><?php echo $row['description']?></div>
-					<ul class="postcard__tagbox">
-						<li class="tag__item"><i class="fas fa-tag mr-2"></i>France</li>
-						<li class="tag__item"><i class="fas fa-clock mr-2"></i> 3 mins.</li>
-						<li class="tag__item play yellow">
-							<a href="#"><i class="fas fa-play mr-2"></i>APPLY NOW</a>
-						</li>
-					</ul>
-				</div>
-			</article>
-            <?php }?>
-			<article class="postcard light yellow">
+		
+			<!-- <article class="postcard light yellow">
 				<a class="postcard__img_link" href="#">
 					<img class="postcard__img" src="https://picsum.photos/300/300" alt="Image Title" />
 				</a>
@@ -150,7 +124,7 @@ $result=mysqli_query($connection->conn,$sql);
 						</li>
 					</ul>
 				</div>
-			</article>
+			</article> -->
 		</div>
 	</section>
 
@@ -161,10 +135,19 @@ $result=mysqli_query($connection->conn,$sql);
 		<p>© 2023 JobEase </p>
 	</footer>
 	<script>
-		function search(){
-			$x=new XMLHttpRequest();
-			$inp=
-		}
+		function search() {
+  var searchTerm = document.getElementById('keywords').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'search.php?term=' + searchTerm, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById('result').innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send();
+}
+search();
+		
 	</script>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
