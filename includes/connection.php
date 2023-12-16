@@ -55,10 +55,12 @@ class Login extends Connection
 
  if($username==$row['username'])
  { 
+  session_start();
+  $_SESSION['user_id']=$row['id'];
   if(password_verify($password, $row['password'])&& $row['role_name']=='admin'){
     header('location:dashboard/offre.php');
     exit(); 
-  }elseif(password_verify($password, $row['password'])&& $row['role_name']=='candidat'){    echo 'yes';
+  }elseif(password_verify($password, $row['password'])&& $row['role_name']=='candidat'){ 
     header('location: index.php');
     exit(); 
     
@@ -159,6 +161,7 @@ public function addJob($title, $description, $company, $location, $status) {
   public function delete($id){
     $query="DELETE from jobs where job_id=$id";
     $result=mysqli_query($this->conn,$query);
+    
 
    
 
@@ -196,8 +199,8 @@ public function addJob($title, $description, $company, $location, $status) {
                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>France</li>
                         <li class="tag__item"><i class="fas fa-clock mr-2"></i> 3 mins.</li>
                         <li class="tag__item play yellow">
-                           <form action="../dashboard/apllay.php"method="POST"> 
-                            <input type="hidden" name="jobid" value="<?php echo $row['job_id']?>">
+                           <form action="dashboard/apllay.php" method="POST"> 
+                            <input type="hidden" name="jobid" value="<?php echo $row['job_id'] ?>">
                             <button type='submit' name="submit"><i class="fas fa-play mr-2"></i>APPLY NOW</button>
                           </form>
                            

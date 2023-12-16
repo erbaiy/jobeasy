@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,8 +114,7 @@
                         </tr>
                         
                         <?php
-
-                                             
+                                       
 $dbName = "sprint3";
 $dbHost = "localhost";
 $dbUser = "root";
@@ -120,12 +122,13 @@ $dbPass = "";
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if (!$conn) {
     die("Something went wrong");
-    
+               
 }
 $query="SELECT * FROM `offre`INNER JOIN jobs ON offre.job_id=jobs.job_id
 INNER JOIN users ON users.id=offre.user_id";
 $result=mysqli_query($conn,$query);
-
+$row=mysqli_fetch_assoc($result);
+$_SESSION['statut']=$row['statut'];
 while($row=mysqli_fetch_assoc($result)){
     ?>
 

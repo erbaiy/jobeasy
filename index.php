@@ -71,6 +71,9 @@ $result=mysqli_query($connection->conn,$sql);
 						<li class="nav-item">
 							<a class="nav-link" href="login.php">Login</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="logout.php">logout</a>
+						</li>
 					</ul>
 				</div>
 			</div>
