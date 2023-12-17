@@ -1,11 +1,31 @@
 <?php
 include('../../includes/connection.php');
+$update=new Jobs();
+$connection=new Connection();
+$conn=$connection->conn;
 
+
+
+
+
+if(isset($_GET['id'])){
+    $x=$_GET['id'];
+
+    $select = "SELECT * FROM jobs WHERE job_id =$x";
+    $rs = mysqli_query($conn, $select);
+    $fetch = mysqli_fetch_array($rs);
+    $title = $fetch['title'];
+    $dis=$fetch['description']; 
+    $company=$fetch['company'];
+    $location=$fetch['location'];
+}
+// $x=$_GET['id'];
 if(isset($_POST['submit'])){
 
 
 
-$update=new Jobs();
+
+
 
 $update->update($_POST['title'],$_POST['discription'],$_POST['company'],$_POST['location'],$_POST['status'],$_GET['id']);
 header('location:../jobs.php');
@@ -75,10 +95,10 @@ header('location:../jobs.php');
         <h2>update job</h2>
         <form action="" method="POST" id="form">
             <label for="user_name" class="label">title</label>
-            <input type="text" name="title" id="user_name" class="input-field" >
+            <input type="text" name="title" id="user_name" class="input-field" value="<?php echo  $title?>">
             
             <label for="email" class="label">discription</label>
-            <input type="text" name="discription" id="email" class="input-field"value="">
+            <input type="text" name="discription" id="email" class="input-field" value="">
             <label for="email" class="label">company</label>
             <input type="text" name="company" id="email" class="input-field"value="">
             <label for="email" class="label">location</label>

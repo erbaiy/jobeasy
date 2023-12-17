@@ -172,6 +172,8 @@ public function addJob($title, $description, $company, $location, $status,$image
 
   }
   public function update($n_tiltle,$n_discription,$n_company,$n_location,$n_status,$id){
+   
+    
     $query="UPDATE  jobs set title='$n_tiltle', description='$n_discription', company='$n_company', location='$n_location', status='$n_status'  where job_id=$id";
     $result=mysqli_query($this->conn,$query);
     

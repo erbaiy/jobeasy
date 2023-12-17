@@ -1,5 +1,20 @@
 <?php
 session_start();
+$dbName = "sprint3";
+$dbHost = "localhost";
+$dbUser = "root";
+$dbPass = "";
+$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+if (!$conn) {
+    die("Something went wrong");
+    
+}
+
+if (isset($_POST['ac'])) {
+    $statut = $_SESSION['statut'];
+    $ac = "UPDATE offre SET statut='accept' WHERE offre_id='$statut'";
+    mysqli_query($conn, $ac);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,8 +170,10 @@ while($row=mysqli_fetch_assoc($result)){
                             
                             <td class="f_position"><?php echo $row['statut']?></td>
                             <td class="">
-                                <img class="accept_task w-50" src="img/journal-check.svg" alt="icon" >
-                                <img class="delet_user w-50" src="img/journal-x.svg" alt="icon">
+                                <form action="" method="post">
+                               <button name="ac"><img class="accept_task w-50" src="img/journal-check.svg" alt="icon" ></button> 
+                               <button name="ref"><img class="delet_user w-50" src="img/journal-x.svg" alt="icon"></button>
+                                </form>
                             </td>
                         </tr>
 
