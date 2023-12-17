@@ -48,6 +48,7 @@ class Login extends Connection
 {
 
 
+  session_start();
 
   $query = "SELECT * FROM users WHERE username = '$username'";
   $result = mysqli_query($this->conn, $query);
@@ -55,19 +56,22 @@ class Login extends Connection
 
  if($username==$row['username'])
  { 
-  session_start();
   $_SESSION['user_id']=$row['id'];
   if(password_verify($password, $row['password'])&& $row['role_name']=='admin'){
     header('location:dashboard/offre.php');
+    // echo "work1";
     exit(); 
   }elseif(password_verify($password, $row['password'])&& $row['role_name']=='candidat'){ 
     header('location: index.php');
+    // echo "work1";
     exit(); 
     
   }
 }else{
   echo 
   "<script>alert('ivalid! invalid username');</script>";
+
+  // echo 'error';
   exit(); 
 }
 return $result;
@@ -151,8 +155,9 @@ while($row=mysqli_fetch_assoc($result)){
 
 }
 }
-public function addJob($title, $description, $company, $location, $status) {
-  $query = "INSERT INTO jobs (title, description, company, location, status) VALUES ('$title', '$description', '$company', '$location', '$status')";    
+public function addJob($title, $description, $company, $location, $status,$image) {
+ $query = "INSERT INTO jobs (title, description, company, location, status, image_path) VALUES ('$title', '$description', '$company', '$location', '$status', '$image')"; 
+ $query = "INSERT INTO jobs (title, description, company, location, status, image_path) VALUES ('$title', '$description', '$company', '$location', '$status', '$image')";
 
   $result = mysqli_query($this->conn, $query);
 }
@@ -183,7 +188,7 @@ public function addJob($title, $description, $company, $location, $status) {
 ?>
             <article class="postcard light yellow">
                 <a class="postcard__img_link" href="#">
-                    <img class="postcard__img" src="dashboard/img/imagaz.jpg" alt="Image Title" />
+                    <img class="postcard__img" src="dashboard/img/<?php echo $row['image_path']?>" alt="Image Title" />
                 </a>
                 <div class="postcard__text t-dark">
                     <h3 class="postcard__title yellow"><a href="#"><?php echo $row['title']?></a></h3>

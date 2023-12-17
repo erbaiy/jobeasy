@@ -54,7 +54,39 @@ require('../../includes/connection.php');
 $job=new Jobs();
 
 if(isset($_POST['submit'])){
-    $job->addJob($_POST['title'],$_POST['discription'],$_POST['company'],$_POST['location'],$_POST['status']);
+    $image_name= $_FILES['jobImage']['name'];
+    $image_temp= $_FILES['jobImage']['tmp_name'];
+    $image_type= $_FILES['jobImage']['type'];
+    $image_size= $_FILES['jobImage']['size'];
+    $image_error= $_FILES['jobImage']['error'];
+    $allowed = array('jpg' , 'png' , 'jif');
+    $image = explode('.' , $image_name);
+    $image_ext = strtolower(end($image));
+
+    if($image_error == 4){
+        echo "file is not uploaded";
+    }
+    else if($image_size){
+        if(in_array($image_ext , $allowed)){
+            $jobImage = uniqid() . $image_name;
+            move_uploaded_file($image_temp , $_SERVER['DOCUMENT_ROOT'] . '/sprint3/dashboard/img/' . $jobImage);
+
+            // $jobs = $job->add_job($jobName , $jobDescription , $jobCompany , $jobLocation , $jobstatus , $jobImage);
+            $job->addJob($_POST['title'],$_POST['discription'],$_POST['company'],$_POST['location'],$_POST['status'],$jobImage);
+            if($job){
+                header('location:../jobs.php');
+            } 
+        }else{
+            echo "file is not valid you need this extention ('jpg' , 'png' , 'jfif')";
+        }
+    }else{
+        echo "size to file is so heigh";
+    }
+    
+
+
+
+    // $job->addJob($_POST['title'],$_POST['discription'],$_POST['company'],$_POST['location'],$_POST['status']);
    
 }
 ?>
@@ -120,7 +152,10 @@ if(isset($_POST['submit'])){
 <body>
     <div class="container">
         <h2>Add job</h2>
-        <form action="" method="POST" id="form">
+        <form action="" method="POST" enctype="multipart/form-data" id="form">
+            <label for="">chose image</label>
+            <input type="file" name="jobImage">
+            
             <label for="user_name" class="label">title</label>
             <input required type="text" name="title" id="user_name" class="input-field" >
             
