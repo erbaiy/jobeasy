@@ -100,9 +100,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td>
             <p class="fw-normal mb-1 f_title"><?php echo $row["email"]?></p>
         </td>
-        <td>
-            <span class="f_status"><?php echo $row["password"]?></span>
-        </td>
+        
         <td>
             <img class="delet_user" src="img/user-x.svg" alt="">
             <img class="ms-2 edit" src="img/edit.svg" alt="">
@@ -162,7 +160,14 @@ public function addJob($title, $description, $company, $location, $status,$image
   $result = mysqli_query($this->conn, $query);
 }
 
+ public function applayReponse($rep,$id){
+if($rep=='ac'){
+  $query= "UPDATE offre SET statut='accept' WHERE offre_id='$id'";
+    $result=mysqli_query($this->conn, $ac);
+}
+return $result;
 
+ }
   public function delete($id){
     $query="DELETE from jobs where job_id=$id";
     $result=mysqli_query($this->conn,$query);

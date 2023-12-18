@@ -21,12 +21,13 @@ if(isset($_POST['submit'])){
         $res=mysqli_query($conn,$selct);
         if(mysqli_num_rows($res)>0){
             echo "<script>alert('You have already applied')</script>";
-            echo 'work1';
+       
         }else{
-            echo 'work2';
+           
             
             $query="INSERT INTO offre VALUES(null, $job_id, $id, 'not approved')";
-            mysqli_query($conn, $query);
+            mysqli_query($conn, $query);    
+            header("location:../index.php");
         }
     }
 }

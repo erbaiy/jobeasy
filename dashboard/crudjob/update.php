@@ -18,15 +18,10 @@ if(isset($_GET['id'])){
     $dis=$fetch['description']; 
     $company=$fetch['company'];
     $location=$fetch['location'];
+    $status=$fetch['status'];
 }
 // $x=$_GET['id'];
 if(isset($_POST['submit'])){
-
-
-
-
-
-
 $update->update($_POST['title'],$_POST['discription'],$_POST['company'],$_POST['location'],$_POST['status'],$_GET['id']);
 header('location:../jobs.php');
 }
@@ -98,16 +93,16 @@ header('location:../jobs.php');
             <input type="text" name="title" id="user_name" class="input-field" value="<?php echo  $title?>">
             
             <label for="email" class="label">discription</label>
-            <input type="text" name="discription" id="email" class="input-field" value="">
+            <input type="text" name="discription" id="" class="input-field" value="<?php echo  $dis?>">
             <label for="email" class="label">company</label>
-            <input type="text" name="company" id="email" class="input-field"value="">
+            <input type="text" name="company" id="email" class="input-field"value="<?php echo  $company?>">
             <label for="email" class="label">location</label>
-            <input type="text" name="location" id="email" class="input-field"value="">
+            <input type="text" name="location" id="email" class="input-field"value="<?php echo  $location?>">
             
             
             
             <label for="role" class="label">status</label>
-            <select name="status" id="status" class="input-field"value="">
+            <select name="status" id="status" class="input-field"value="<?php echo  $status?>">
                 
                 <option value="open">open</option>
                 <option value="closed">closed</option>

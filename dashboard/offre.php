@@ -1,20 +1,13 @@
 <?php
 session_start();
-$dbName = "sprint3";
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
-if (!$conn) {
-    die("Something went wrong");
-    
-}
+include('../includes/connection.php');
 
-if (isset($_POST['ac'])) {
-    $statut = $_SESSION['statut'];
-    $ac = "UPDATE offre SET statut='accept' WHERE offre_id='$statut'";
-    mysqli_query($conn, $ac);
-}
+
+// if (isset($_POST['ac'])) {
+//     $statut = $_SESSION['statut'];
+//     $ac = "UPDATE offre SET statut='accept' WHERE offre_id='$statut'";
+//     mysqli_query($conn, $ac);
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

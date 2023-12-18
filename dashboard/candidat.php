@@ -104,7 +104,6 @@
                         <tr>
                             <th>Name</th>
                             <th>email</th>
-                            <th>password</th>
                          
                             <th>Actions</th>
                         </tr>
@@ -282,7 +281,7 @@
                         <?php
 include('../includes/connection.php');
 $selct=new Users();
-$selct->selectUsers();d
+$selct->selectUsers();
 
 
 ?>
