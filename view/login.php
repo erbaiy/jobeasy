@@ -1,14 +1,14 @@
 <?php
-include('../app');
-$resl=new Login();
-if(isset($_POST["submit"]))
-{
-  
-  $username = $_POST['username'];
-    $password =$_POST['password'];
-  $resl->login($username,$password);
+// include('../app');
+// $resl=new Login();
+// if(isset($_POST["submit"]))
+// {
 
-}
+//   $username = $_POST['username'];
+//     $password =$_POST['password'];
+//   $resl->login($username,$password);
+
+// }
 
 
 

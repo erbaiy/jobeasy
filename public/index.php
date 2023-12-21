@@ -3,8 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\JobsControllers;
-use App\Controllers\LoginController;
-
+// use App\Controller\UsersController;
 
 
 $route = isset($_GET['route']) ? $_GET['route'] : 'home';
@@ -13,14 +12,15 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 switch ($route) {
 
     case 'home':
-        $controller = new JobsControllers();
-        $controller->selectJobs();
+        $controller = new App\Controllers\UsersController();
+        $controller->login();
         break;
-    case 'addJob':
-        echo 'dsc';
-        $controller = new JobsControllers();
-        $controller->AddJob();
-        break;
+
+        // case 'addJob':
+        //     echo 'dsc';
+        //     $controller = new JobsControllers();
+        //     $controller->AddJob();
+        //     break;
     case 'DeleteJob':
         $logincontroller = new JobsControllers();
         $logincontroller->DeleteJob();
