@@ -1,5 +1,5 @@
 <?php
-include('includes/connection.php');
+include('../app');
 $resl=new Login();
 if(isset($_POST["submit"]))
 {
@@ -13,32 +13,6 @@ if(isset($_POST["submit"]))
 
 
 
-
-//____________________________________________________
-// if(isset($_POST['submit']))
-// {
-
-//   $username = mysqli_real_escape_string($conn, $_POST['username']);
-//     $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-//   $query = "SELECT * FROM users WHERE username = '$username'";
-//   $result = mysqli_query($conn, $query);
-//   $row = mysqli_fetch_assoc($result);
-
-//  if($username==$row['username'])
-//  { 
-//   if(password_verify($password, $row['password'])){
-//     header('location:dashboard/offre.php');
-//     exit(); 
-//   }
-// }else{
-//   echo 
-//   "<script>alert('ivalid! invalid username');</script>";
-//   exit(); 
-// }
-// }
-
-//____________________________________________________
 
 
 ?>

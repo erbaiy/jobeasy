@@ -5,12 +5,7 @@ $register=new Register();
 
 if(isset($_POST['submit']))
 {
-  // echo $_POST['username'];
-  // echo '<br>';
-  // echo $_POST['email'];
-  // echo '<br>';
-  // echo $_POST['password'];
-  // echo '<br>';
+ 
   $password_hash=password_hash($_POST["password"],PASSWORD_DEFAULT);
 $rs=$register->registration($_POST['username'],$_POST["email"],$password_hash);
 
@@ -23,34 +18,8 @@ print_r($rs);
 
 
 
-//______________________________________________________________
-
-
-
-// if(isset($_POST['submit'])){
-//   $username =htmlspecialchars(trim($_POST['username']));
-//   $email = htmlspecialchars(trim($_POST['email']));
-//   $password = htmlspecialchars(trim($_POST['password']));
-//   $hash_password=password_hash($password,PASSWORD_DEFAULT);
-//   $confirmpassword=$_POST['confirmpassword'];
-//   $hash_confirmpassword=password_hash($confirmpassword,PASSWORD_DEFAULT);
-
-//   $role = 'cadidat'; 
 
  
-
-//     $query = "INSERT INTO `users`(username,email,password,role_name) VALUES ('$username', '$email', '$hash_password', '$role') ";
-//     $result = mysqli_query($conn, $query);
-    
-
-
-
-  
-// }
-//_____________________________________________________________________
-
-
-
 ?>
 
 
