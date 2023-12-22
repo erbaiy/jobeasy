@@ -86,4 +86,17 @@ INNER JOIN users ON users.id=offre.user_id";
         // $row = mysqli_fetch_assoc($result);
         return $result;
     }
+    //-------------aplay------------------------
+    public function checkIfAlreadyApplied($userId, $jobId)
+    {
+        $selectQuery = "SELECT * FROM offre WHERE user_id=$userId AND job_id=$jobId";
+        $result = mysqli_query($this->conn, $selectQuery);
+        return mysqli_num_rows($result) > 0;
+    }
+
+    public function applyForJob($jobId, $userId)
+    {
+        $insertQuery = "INSERT INTO offre VALUES(null, $jobId, $userId, 'not approved')";
+        mysqli_query($this->conn, $insertQuery);
+    }
 }

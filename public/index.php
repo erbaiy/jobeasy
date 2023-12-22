@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\JobsControllers;
@@ -14,6 +14,10 @@ switch ($route) {
     case 'home':
         $controller = new App\Controllers\JobsControllers();
         $controller->home();
+        break;
+    case 'apply':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->apply();
         break;
     case 'offre':
         $controller = new App\Controllers\JobsControllers();

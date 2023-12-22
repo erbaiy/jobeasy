@@ -136,7 +136,7 @@ class JobsControllers
                                 <li class="tag__item"><i class="fas fa-tag mr-2"></i>France</li>
                                 <li class="tag__item"><i class="fas fa-clock mr-2"></i> 3 mins.</li>
                                 <li class="tag__item play yellow">
-                                    <form action="dashboard/apllay.php" method="POST">
+                                    <form action="index.php?route=apply" method="POST">
                                         <input type="hidden" name="jobid" value="<?php echo $row['job_id'] ?>">
                                         <button type='submit' name="submit"><i class="fas fa-play mr-2"></i>APPLY NOW</button>
                                     </form>
@@ -152,5 +152,29 @@ class JobsControllers
                 echo "No matching records found";
             }
         }
+    }
+    public function apply()
+    {
+
+
+        if (isset($_POST['submit'])) {
+            $userId = $_SESSION['user_id'];
+            $jobId = $_POST['jobid'];
+
+            if (!$userId) {
+                header('location:index.php?route=login');
+                exit();
+            } else {
+                $offreModel = new JobsModels();
+
+                if ($offreModel->checkIfAlreadyApplied($userId, $jobId)) {
+                    echo "<script>alert('You have already applied')</script>";
+                } else {
+                    $offreModel->applyForJob($jobId, $userId);
+                    header("location:../index.php");
+                }
+            }
+        }
+        require('../view/crudjob/applay.php');
     }
 }
