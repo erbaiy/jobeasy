@@ -39,8 +39,6 @@ class JobsControllers
                     // echo $_SERVER['DOCUMENT_ROOT'] . '/assets/img' . $jobImage;
                     // die();
                     move_uploaded_file($image_temp, $_SERVER['DOCUMENT_ROOT'] . '/assets/img' . $jobImage);
-
-
                     $job->addJob($_POST['title'], $_POST['discription'], $_POST['company'], $_POST['location'], $_POST['status'], $jobImage);
                     if ($job) {
                         header('location:index.php?route=selectJobs');
@@ -78,6 +76,14 @@ class JobsControllers
         $status = $fetch['status'];
 
         require('../view/crudjob/update.php');
+    }
+    public  function offre()
+    {
+        $offre = new JobsModels();
+        $result = $offre->offre();
+        // dump($result);
+
+        require('../view/offre.php');
     }
 
     public function UpdateJob()

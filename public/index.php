@@ -15,6 +15,10 @@ switch ($route) {
         $controller = new App\Controllers\JobsControllers();
         $controller->home();
         break;
+    case 'offre':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->offre();
+        break;
     case 'search':
         $controller = new App\Controllers\JobsControllers();
         $controller->search();

@@ -78,4 +78,12 @@ class JobsModels
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    public function offre()
+    {
+        $query = "SELECT * FROM `offre`INNER JOIN jobs ON offre.job_id=jobs.job_id
+INNER JOIN users ON users.id=offre.user_id";
+        $result = mysqli_query($this->conn, $query);
+        // $row = mysqli_fetch_assoc($result);
+        return $result;
+    }
 }

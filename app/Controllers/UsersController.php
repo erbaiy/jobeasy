@@ -23,16 +23,17 @@ class UsersController
             $result = $userModel->login($username, $password);
 
             $row = mysqli_fetch_assoc($result);
-            dump($row);
-            if ($username == $row['username']) {
-                dump(password_verify($password, $row['password']));
+
+            // dump($row['password']);
+            if (password_verify($password, $row['password']) & $username == $row['username']) {
+                // dump(password_verify($password, $row['password']));
                 $_SESSION['user_id'] = $row['id'];
                 if (password_verify($password, $row['password']) && $row['role_name'] == 'admin') {
-                    // header('location:index.php?route=SelcectData');
+                    header('location:index.php?route=selectJobs');
                 } elseif (password_verify($password, $row['password']) && $row['role_name'] == 'candidat') {
                     // dump("testt rout");
-                    // header('location:?route=home');
-                    require('../view/index.php');
+                    header('location:index.php?route=home');
+
                     echo 'welcome';
                 }
             } else {
