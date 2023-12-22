@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </head>
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <body>
     <div class="wrapper">
         <aside id="sidebar" class="side">
             <div class="h-100">
                 <div class="sidebar_logo d-flex align-items-end">
-                  
+
                     <a href="#" class="nav-link text-white-50">Dashboard</a>
-                   
+
                 </div>
 
                 <ul class="sidebar_nav">
@@ -68,7 +67,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text mb-3">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <small class="card-text">1  day ago</small>
+                                    <small class="card-text">1 day ago</small>
                                 </div>
                             </div>
                             <div class="list-group-item px-3 d-flex"><img src="img/notif.svg" alt="iconimage">
@@ -76,7 +75,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text mb-3">Some quick example text to build on the card title and make up
                                         the bulk of the card's content.</p>
-                                    <small class="card-text">1  day ago</small>
+                                    <small class="card-text">1 day ago</small>
                                 </div>
                             </div>
                             <div class="list-group-item px-3 text-center"><a href="#">View all notifications</a></div>
@@ -104,12 +103,12 @@
                         <tr>
                             <th>Name</th>
                             <th>email</th>
-                         
+
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                      
+
                         <!-- <tr class="freelancer">
                             <td>
                                 <div class="d-flex align-items-center">
@@ -279,80 +278,78 @@
                             </td>
                         </tr> -->
                         <?php
-include('../includes/connection.php');
-$selct=new Users();
-$selct->selectUsers();
+                        include('../includes/connection.php');
+                        $selct = new Users();
+                        $selct->selectUsers();
 
 
-?>
+                        ?>
 
-                        
+
                     </tbody>
                 </table>
 
-                
+
             </section>
             <!-- edit modal -->
-                <div class="modal">
-                    <div class="modal-content" >
-                        <form id="forms">
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                            <div class="row mb-4">
-                              <div class="col">
+            <div class="modal">
+                <div class="modal-content">
+                    <form id="forms">
+                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row mb-4">
+                            <div class="col">
                                 <div class="">
-                                  <label class="form-label" >First name</label>
-                                  <input type="text" class="form-control first_name" >
+                                    <label class="form-label">First name</label>
+                                    <input type="text" class="form-control first_name">
                                 </div>
-                              </div>
-                              <div class="col">
+                            </div>
+                            <div class="col">
                                 <div class="">
-                                    <label class="form-label" >Last name</label>
-                                  <input type="text" class="form-control last_name" >
+                                    <label class="form-label">Last name</label>
+                                    <input type="text" class="form-control last_name">
                                 </div>
-                              </div>
                             </div>
-                          
-                            <!-- Text input -->
-                            <div class="mb-4">
-                                <label class="form-label" >Email</label>
-                              <input type="text" class="form-control email" >
-                            </div>
-                          
-                            <!-- Text input -->
-                            <div class="mb-4">
-                                <label class="form-label">Title</label>
-                              <input type="text" class="form-control title_user" >
-                            </div>
-                          
-                            <!-- Number input -->
-                            <div class=" mb-4">
-                              <label class="form-label">Status</label>
-                              <input type="text" class="form-control status" >
-                            </div>
-                          
-                            <!-- Message input -->
-                            <div class=" mb-4">
-                              <label class="form-label">Position</label>
-                              <textarea class="form-control position"  rows="4"></textarea>
-                            </div>
-                          
-                            <!-- Submit button -->
-                            <div class="d-flex w-100 justify-content-center">
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="mb-4">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control email">
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="mb-4">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control title_user">
+                        </div>
+
+                        <!-- Number input -->
+                        <div class=" mb-4">
+                            <label class="form-label">Status</label>
+                            <input type="text" class="form-control status">
+                        </div>
+
+                        <!-- Message input -->
+                        <div class=" mb-4">
+                            <label class="form-label">Position</label>
+                            <textarea class="form-control position" rows="4"></textarea>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="d-flex w-100 justify-content-center">
                             <p class="error text-danger"></p>
                             <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">Save Edit</button>
                             <button class="btn btn-danger btn-block mb-4 annuler">Annuler</button>
-                            </div>
-                          </form>
-                            
-                    </div>
+                        </div>
+                    </form>
+
                 </div>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-        <script src="dashboard.js"></script>
-        <script src="agents.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+    <script src="agents.js"></script>
 </body>
 
 </html>

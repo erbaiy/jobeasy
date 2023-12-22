@@ -59,6 +59,10 @@ class UsersController
         }
         require('../view/register.php');
     }
+    public function candidat()
+    {
+        require('../view/candidat.php');
+    }
     public function logout()
     {
         session_start();
@@ -66,4 +70,6 @@ class UsersController
         header('Location: index.php?route=home');
         exit();
     }
+    //---è_çàà)
+
 }

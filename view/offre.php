@@ -34,16 +34,16 @@
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                        <a href="dashboard.php" class="sidebar_link"> <img src="assets/img/1. overview.svg" alt="icon">Overview</a>
+                        <a href="index.php?route=dashboard" class="sidebar_link"> <img src="assets/img/1. overview.svg" alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="candidat.php" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
+                        <a href="index.php?route=candidat" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="offre.php" class="sidebar_link"> <img src="assets/img/task.svg" alt="icon">Offre</a>
+                        <a href="index.php?route=selectJobs" class="sidebar_link"> <img src="assets/img/task.svg" alt="icon">jobs</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="contact.php" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Contact</a>
+                        <a href="index.php?route=contact" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Contact</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="#" class="sidebar_link"><img src="assets/img/articles.svg" alt="icon">Articles</a>
@@ -164,7 +164,8 @@
 
                             <td class="f_position"><?php echo $row['statut'] ?></td>
                             <td class="">
-                                <form action="" method="post">
+                                <form action="index.php?route=acseptapplay" method="POST">
+                                    <input type="hidden" name="offre_id" value="<?php echo $row['offre_id'] ?>">
                                     <button name="ac"><img class="accept_task w-50" src="assets/img/journal-check.svg" alt="icon"></button>
                                     <button name="ref"><img class="delet_user w-50" src="assets/img/journal-x.svg" alt="icon"></button>
                                 </form>

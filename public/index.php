@@ -23,6 +23,10 @@ switch ($route) {
         $controller = new App\Controllers\JobsControllers();
         $controller->offre();
         break;
+    case 'acseptapplay':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->acseptapplay();
+        break;
     case 'search':
         $controller = new App\Controllers\JobsControllers();
         $controller->search();
@@ -67,6 +71,19 @@ switch ($route) {
     case 'UpdateJob':
         $logincontroller = new JobsControllers();
         $logincontroller->UpdateJob();
+        break;
+        //_____
+    case 'dasboard':
+        $logincontroller = new JobsControllers();
+        $logincontroller->dasboard();
+        break;
+    case 'candidat':
+        $logincontroller = new JobsControllers();
+        $logincontroller->condidat();
+        break;
+    case 'contact':
+        $logincontroller = new JobsControllers();
+        $logincontroller->contact();
         break;
         // Add more cases for other routes as needed
     default:

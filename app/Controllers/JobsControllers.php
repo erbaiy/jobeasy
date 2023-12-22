@@ -177,4 +177,32 @@ class JobsControllers
         }
         require('../view/crudjob/applay.php');
     }
+    public function acseptapplay()
+    {
+
+        if (isset($_POST['ac'])) {
+
+            $acsept = new JobsModels();
+            $ac = $_POST['offre_id'];
+
+
+            $acsept->acseptapllay($ac);
+            header('location:index.php?route=offre');
+        }
+    }
+
+    //666666666666666666666666666666
+    public function dasboard()
+    {
+        require('../view/dashboard.php');
+    }
+    public function condidat()
+    {
+        require('../view/condidat.php');
+    }
+
+    public function contact()
+    {
+        require('../view/contact.php');
+    }
 }

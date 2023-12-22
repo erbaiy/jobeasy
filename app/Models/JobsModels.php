@@ -94,9 +94,16 @@ INNER JOIN users ON users.id=offre.user_id";
         return mysqli_num_rows($result) > 0;
     }
 
+
     public function applyForJob($jobId, $userId)
     {
         $insertQuery = "INSERT INTO offre VALUES(null, $jobId, $userId, 'not approved')";
         mysqli_query($this->conn, $insertQuery);
+    }
+    public function acseptapllay($id)
+    {
+        $aprove = "UPDATE offre SET statut='approve' where offre_id='$id' ";
+        $result = mysqli_query($this->conn, $aprove);
+        return $result;
     }
 }
