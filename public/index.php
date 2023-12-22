@@ -12,15 +12,42 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 switch ($route) {
 
     case 'home':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->home();
+        break;
+    case 'search':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->search();
+        break;
+    case 'selectJobs':
+        $controller = new App\Controllers\JobsControllers();
+        $controller->selectJobs();
+        break;
+
+    case 'register':
+        $controller = new App\Controllers\UsersController();
+        $controller->register();
+        break;
+    case 'login':
+        $controller = new App\Controllers\UsersController();
+        $controller->loginURL();
+        break;
+    case 'getlogin':
         $controller = new App\Controllers\UsersController();
         $controller->login();
         break;
+    case 'logout':
+        $controller = new App\Controllers\UsersController();
+        $controller->logout();
+        break;
 
-        // case 'addJob':
-        //     echo 'dsc';
-        //     $controller = new JobsControllers();
-        //     $controller->AddJob();
-        //     break;
+
+
+    case 'addJob':
+
+        $controller = new JobsControllers();
+        $controller->AddJob();
+        break;
     case 'DeleteJob':
         $logincontroller = new JobsControllers();
         $logincontroller->DeleteJob();
@@ -29,9 +56,7 @@ switch ($route) {
         $logincontroller = new JobsControllers();
         $logincontroller->SelcectData();
         break;
-
     case 'UpdateJob':
-
         $logincontroller = new JobsControllers();
         $logincontroller->UpdateJob();
         break;

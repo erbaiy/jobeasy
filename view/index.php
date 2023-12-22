@@ -1,15 +1,15 @@
 <?php
 
 
-include("../app/Models/connection.php");
-require '../vendor/autoload.php';
+// include("../app/Models/connection.php");
+// require '../vendor/autoload.php';
 
-$connection=new App\Models\Connection();
-// $hash=password_hash(123,PASSWORD_DEFAULT);
-// mysqli_query($connection->conn,"UPDATE users set password='$hash' where id=1");
+// $connection=new App\Models\Connection();
+// // $hash=password_hash(123,PASSWORD_DEFAULT);
+// // mysqli_query($connection->conn,"UPDATE users set password='$hash' where id=1");
 
-$sql="SELECT * from jobs ";
-$result=mysqli_query($connection->conn,$sql);
+// $sql="SELECT * from jobs ";
+// $result=mysqli_query($connection->conn,$sql);
 ?>
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@ $result=mysqli_query($connection->conn,$sql);
 		JobEase
 	</title>
 
-	<link rel="stylesheet" href="../styles/style.css">
+	<link rel="stylesheet" href="../assets/styles/style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -71,10 +71,10 @@ $result=mysqli_query($connection->conn,$sql);
 							<a class="nav-link" href="#">EN</a>
 						</span>
 						<li class="nav-item">
-							<a class="nav-link" href="login.php">Login</a>
+							<a class="nav-link" href="index.php?route=login">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="logout.php">logout</a>
+							<a class="nav-link" href="index.php?route=logout">logout</a>
 						</li>
 					</ul>
 				</div>
@@ -83,11 +83,11 @@ $result=mysqli_query($connection->conn,$sql);
 	</header>
 	<section action="#" method="POST" class="search">
 		<h2>Find Your Dream Job</h2>
-		
-			<div class="form-group mb-2">
-				<input   type="text" id="keywords" placeholder="Keywords">
 
-<!-- 
+		<div class="form-group mb-2">
+			<input type="text" id="keywords" placeholder="Keywords">
+
+			<!-- 
 			</div>
 			<div class="form-group mx-sm-3 mb-2">
 				<input type="text" name="location" placeholder="Location">
@@ -96,18 +96,18 @@ $result=mysqli_query($connection->conn,$sql);
 				<input type="text" name="company" placeholder="Company">
 			</div> -->
 			<button type="submit" name="search" onclick="search()" class="btn btn-primary mb-2">Search</button>
-	
-		
+
+
 	</section>
 
 	<!--------------------------  card  --------------------->
 	<section class="light">
 		<h2 class="text-center py-3">Latest Job Listings</h2>
 		<div class="container py-2">
-			
-		<div id="result"> </div>
 
-		
+			<div id="result"> </div>
+
+
 			<!-- <article class="postcard light yellow">
 				<a class="postcard__img_link" href="#">
 					<img class="postcard__img" src="https://picsum.photos/300/300" alt="Image Title" />
@@ -133,7 +133,7 @@ $result=mysqli_query($connection->conn,$sql);
 		</div>
 	</section>
 
-	
+
 
 
 	<footer>
@@ -141,18 +141,17 @@ $result=mysqli_query($connection->conn,$sql);
 	</footer>
 	<script>
 		function search() {
-  var searchTerm = document.getElementById('keywords').value;
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'search.php?term=' + searchTerm, true);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      document.getElementById('result').innerHTML = xhr.responseText;
-    }
-  };
-  xhr.send();
-}
-search();
-		
+			var searchTerm = document.getElementById('keywords').value;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'index.php?route=search&term=' + searchTerm, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					document.getElementById('result').innerHTML = xhr.responseText;
+				}
+			};
+			xhr.send();
+		}
+		search();
 	</script>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

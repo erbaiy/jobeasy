@@ -1,25 +1,25 @@
 <?php
-include('includes/connection.php');
-$register=new Register();
+// include('includes/connection.php');
+// $register=new Register();
 
 
-if(isset($_POST['submit']))
-{
- 
-  $password_hash=password_hash($_POST["password"],PASSWORD_DEFAULT);
-$rs=$register->registration($_POST['username'],$_POST["email"],$password_hash);
+// if(isset($_POST['submit']))
+// {
 
-print_r($rs);
- die();
-  
-}
+//   $password_hash=password_hash($_POST["password"],PASSWORD_DEFAULT);
+// $rs=$register->registration($_POST['username'],$_POST["email"],$password_hash);
 
+// print_r($rs);
+//  die();
 
-
+// }
 
 
 
- 
+
+
+
+
 ?>
 
 
@@ -47,7 +47,7 @@ print_r($rs);
       <div class="input-box">
         <input type="password" placeholder="Create password" name='password' required>
       </div>
-      
+
       <div class="policy">
         <input type="checkbox">
         <h3>I accept all terms & condition</h3>

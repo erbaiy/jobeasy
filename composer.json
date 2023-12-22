@@ -11,5 +11,8 @@
       "email": "younesserbai@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "druidfi/mysqldump-php": "^1.0",
+    "symfony/var-dumper": "^7.0"
+  }
 }

@@ -23,8 +23,8 @@ class UserModel
   {
     $query = "SELECT * FROM users WHERE username = '$username'";
     $result = mysqli_query($this->conn, $query);
-    return $result;
     //   $row = mysqli_fetch_assoc($result);
+    return $result;
 
     //   if ($username == $row['username']) {
     //     $_SESSION['user_id'] = $row['id'];
