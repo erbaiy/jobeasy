@@ -37,7 +37,7 @@
                         <a href="index.php?route=dashboard" class="sidebar_link"> <img src="assets/img/1. overview.svg" alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="index.php?route=candidat" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
+                        <a href="index.php?route=condidat" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="index.php?route=selectJobs" class="sidebar_link"> <img src="assets/img/task.svg" alt="icon">jobs</a>

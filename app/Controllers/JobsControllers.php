@@ -192,13 +192,18 @@ class JobsControllers
     }
 
     //666666666666666666666666666666
-    public function dasboard()
+    public function dashboard()
     {
+        $jobs = new JobsModels;
+        $x = $jobs->statistique();
+        $openJob = $jobs->openJob();
+        $userNum = $jobs->userNum();
+
         require('../view/dashboard.php');
     }
     public function condidat()
     {
-        require('../view/condidat.php');
+        require('../view/candidat.php');
     }
 
     public function contact()

@@ -73,11 +73,11 @@ switch ($route) {
         $logincontroller->UpdateJob();
         break;
         //_____
-    case 'dasboard':
+    case 'dashboard':
         $logincontroller = new JobsControllers();
-        $logincontroller->dasboard();
+        $logincontroller->dashboard();
         break;
-    case 'candidat':
+    case 'condidat':
         $logincontroller = new JobsControllers();
         $logincontroller->condidat();
         break;

@@ -17,7 +17,7 @@
             <div class="h-100">
                 <div class="sidebar_logo d-flex align-items-end">
 
-                    <a href="#" class="nav-link text-white-50">Dashboard</a>
+                    <a href="" class="nav-link text-white-50">Dashboard</a>
 
                 </div>
 
@@ -26,13 +26,13 @@
                         <a href="dashboard.php" class="sidebar_link"> <img src="assets/img/overview.svg" alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="candidat.php" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
+                        <a href="index.php?route=candidat" class="sidebar_link"> <img src="assets/img/agents.svg" alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="index.php?route=offre" class="sidebar_link"> <img src="assets/img/task.svg" alt="icon">Offre</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="contact.php" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Contact</a>
+                        <a href="index.php?route=contact" class="sidebar_link"><img src="assets/img/agent.svg" alt="icon">Contact</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="#" class="sidebar_link"><img src="assets/img/articles.svg" alt="icon">Articles</a>

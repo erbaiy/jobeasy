@@ -106,4 +106,23 @@ INNER JOIN users ON users.id=offre.user_id";
         $result = mysqli_query($this->conn, $aprove);
         return $result;
     }
+    public function statistique()
+    {
+        $query = 'SELECT COUNT(*) as jobs from jobs';
+        $result = mysqli_query($this->conn, $query)->fetch_assoc()['jobs'];
+
+        return $result;
+    }
+    public function openJob()
+    {
+        $query = 'SELECT COUNT(*) as openJob from jobs where status="Open"';
+        $result = mysqli_query($this->conn, $query)->fetch_assoc()['openJob'];
+        return $result;
+    }
+    public function userNum()
+    {
+        $query = 'SELECT COUNT(*) as userNum from users';
+        $result = mysqli_query($this->conn, $query)->fetch_assoc()['userNum'];
+        return $result;
+    }
 }
